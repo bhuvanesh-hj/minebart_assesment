@@ -80,6 +80,7 @@ exports.searchUsers = async (req, res) => {
 			where: whereClause,
 			offset,
 			limit: pageSize,
+			include: [{ model: Address }],
 		});
 
 		res.status(200).json(users);
@@ -113,7 +114,6 @@ function getPermutations(inputString) {
 
 	return perms; // Return the array of all permutations
 }
-
 
 exports.permutation = (req, res) => {
 	try {

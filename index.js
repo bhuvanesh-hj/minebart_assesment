@@ -17,6 +17,7 @@ app.use(express.json());
 app.use("/api", userRoutes);
 
 Address.belongsTo(User);
+User.hasOne(Address);
 
 sequelize
 	.sync({force: false})
